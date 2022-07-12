@@ -2,6 +2,8 @@ import Card from "./components/UI/Card";
 import ExpensesItems from "./components/Expenses/ExpensesItems";
 import './components/Expenses/Expenses.css';
 import NewExpense from "./components/NewExpense/NewExpense";
+import ExpensesFilter from "./components/Expenses/ExpensesFilter";
+import { useState } from "react/cjs/react.production.min";
 
 function App() {
   const expenses = [
@@ -26,10 +28,16 @@ function App() {
     },
   ];
 
+  const [filterYear, setFilterYear] = useState('2022')
+  const filterChangeHandler = selectedYear => {
+    setFilterYear(selectedYear);
+  }
+
   return (
     <>
     <NewExpense />
     <Card className="expenses">
+    <ExpensesFilter selected={filterYear} onChangeFilter={filterChangeHandler}/>
       {/* Attribute can be anything */}
       <ExpensesItems
         title={expenses[0].title} 
