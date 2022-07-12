@@ -3,7 +3,8 @@ import ExpensesItems from "./components/Expenses/ExpensesItems";
 import './components/Expenses/Expenses.css';
 import NewExpense from "./components/NewExpense/NewExpense";
 import ExpensesFilter from "./components/Expenses/ExpensesFilter";
-import { useState } from "react/cjs/react.production.min";
+// import { useState } from "react/cjs/react.production.min";
+import { useState } from "react/cjs/react.development";
 
 function App() {
   const expenses = [
@@ -28,7 +29,7 @@ function App() {
     },
   ];
 
-  const [filterYear, setFilterYear] = useState('2022')
+  const [filterYear, setFilterYear] = useState('2019')
   const filterChangeHandler = selectedYear => {
     setFilterYear(selectedYear);
   }
